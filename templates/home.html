@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+    <h1>URL Shortener</h1>
+</div>
+<div class="container">
+    <label>Original URL</label>
+
+    <form method='POST' action="{{url_for('addUrl')}}">
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Input URL Here" name="original_url">
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary mb-2">Shorten</button>
+            </div>
+        </div>
+        <small class="form-text text-muted">Make sure to include http://</small>
+    </form>
+</div>
+{% endblock %}

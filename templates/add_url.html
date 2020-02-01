@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+    <h1>URL Shortener</h1>
+</div>
+<div class="container">
+    <label>Original URL</label>
+
+    <form>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" value="{{original_url}}">
+            </div>
+        </div>
+    </form>
+
+    <label>Shorten URL</label>
+    <form>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" value="{{url_for('redirectToOriginal', shorten_url= new_link, _external = True)}}">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

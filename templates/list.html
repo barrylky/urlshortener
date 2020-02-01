@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+    <h1>URL Shortener List</h1>
+</div>
+<div class="container">
+    {% if url_list%}
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Original URL</th>
+                <th scope="col">Shorten URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in url_list%}
+            <tr>
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.original_url}}</td>
+                <td><a
+                        href="{{url_for('redirectToOriginal', shorten_url= i.shorten_url, _external = True)}}">{{url_for('redirectToOriginal', shorten_url= i.shorten_url, _external = True)}}</a>
+                </td>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+    {% else %}
+    <h1>List is empty</h1>
+    {% endif %}
+</div>
+
+{% endblock %}
